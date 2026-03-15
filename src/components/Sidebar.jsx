@@ -4,7 +4,7 @@ import { FaHome, FaBook, FaUsers, FaCog } from "react-icons/fa";
 
 function Sidebar() {
   return (
-    <div className="w-64 h-screen bg-white shadow-md p-6">
+    <div className="hidden md:block w-64 h-screen bg-white shadow-md p-6">
 
       <h1 className="text-2xl font-bold mb-10">📚 Library</h1>
 

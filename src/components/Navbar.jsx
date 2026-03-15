@@ -6,7 +6,7 @@ function Navbar() {
       <input
         type="text"
         placeholder="Search books..."
-        className="border rounded-lg px-4 py-2 w-80 outline-none cursor-pointer"
+        className="border rounded-lg px-4 py-2 w-full md:w-80 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       <div className="flex items-center gap-3">
