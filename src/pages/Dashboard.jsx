@@ -33,16 +33,19 @@ import ReadingStatus from "../components/ReadingStatus";
 
 const books = [
     {
+      id: 1,
       title: "Atomic Habits",
       author: "James Clear",
       image: "https://covers.openlibrary.org/b/id/10561564-L.jpg",
     },
     {
+      id: 2,
       title: "Deep Work",
       author: "Cal Newport",
       image: "https://covers.openlibrary.org/b/id/8231991-L.jpg",
     },
     {
+      id: 3,
       title: "The Alchemist",
       author: "Paulo Coelho",
       image: "https://covers.openlibrary.org/b/id/8770983-L.jpg",

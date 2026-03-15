@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 function BookCard({ id, title, author, image }) {
   return (
-    <Link to={`/book/${id}`}>
+    <Link
+      to={`/book/${id}`}
+      state={{ id, title, author, image }}
+    >
       <div className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
 
         <img
