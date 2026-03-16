@@ -1,29 +1,3 @@
-// // import DashboardLayout from "../layout/DashboardLayout";
-// import StatsCards from "../components/StatsCards";
-// import ReadingStatus from "../components/ReadingStatus";
-// import KeepReading from "../components/KeepReading";
-
-// function Dashboard() {
-//   return (
-//      <>
-
-//       <StatsCards />
-
-//       <div className="grid grid-cols-3 gap-6">
-//         <div className="col-span-2">
-//           <ReadingStatus />
-//         </div>
-
-//         <KeepReading />
-//       </div>
-
-//     </>
-//   );
-// }
-
-// export default Dashboard;
-
-
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import StatsCards from "../components/StatsCards";
@@ -71,9 +45,6 @@ function Dashboard() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* <div className="col-span-2 bg-white p-6 rounded-xl shadow">
-            Reading Status Section
-          </div> */}
            <div className="lg:col-span-2">
             <ReadingStatus books={books} />
           </div>

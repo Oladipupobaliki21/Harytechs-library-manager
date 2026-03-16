@@ -1,75 +1,67 @@
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import BookCard from "../components/BookCard";
+import { books } from "../data/books"; 
 
 function Explore() {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const books = [
-    {
-      id: 1,
-      title: "Atomic Habits",
-      author: "James Clear",
-      image: "https://covers.openlibrary.org/b/id/10561564-L.jpg",
-    },
-    {
-      id: 2,
-      title: "Deep Work",
-      author: "Cal Newport",
-      image: "https://covers.openlibrary.org/b/id/8231991-L.jpg",
-    },
-    {
-      id: 3,
-      title: "The Alchemist",
-      author: "Paulo Coelho",
-      image: "https://covers.openlibrary.org/b/id/8770983-L.jpg",
-    },
-    {
-      id: 4,
-      title: "Rich Dad Poor Dad",
-      author: "Robert Kiyosaki",
-      image: "https://covers.openlibrary.org/b/id/8091016-L.jpg",
-    },
-    {
-      id: 5,
-      title: "Think and Grow Rich",
-      author: "Napoleon Hill",
-      image: "https://covers.openlibrary.org/b/id/8226191-L.jpg",
-    },
-    { 
-      id: 6,
-      title: "The Psychology of Money",
-      author: "Morgan Housel",
-      image: "https://covers.openlibrary.org/b/id/10958337-L.jpg",
-    },
-  ];
+  
+  const filteredBooks = books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="flex bg-gray-100 min-h-screen">
 
+     
       <Sidebar />
 
+    
       <div className="flex-1 p-6 space-y-6">
 
-        <Navbar />
+      
+        {/* <Navbar /> */}
 
         <h1 className="text-2xl font-bold">Explore Books</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-         {books.map((book) => (
-         <BookCard
-             key={book.id}
-            id={book.id}
-            title={book.title}
-            author={book.author}
-            image={book.image}
+      
+        <input
+          type="text"
+          placeholder="Search books by title or author..."
+          className="border rounded-lg px-4 py-2 w-full md:w-96 mb-6"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-))}
 
-        </div>
+      
+        {filteredBooks.length === 0 ? (
+          <p className="text-gray-500">No books found.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredBooks.map((book) => (
+              <Link
+                key={book.id}
+                to={`/book/${book.id}`}
+                state={book} 
+              >
+                <BookCard
+                  id={book.id}
+                  title={book.title}
+                  author={book.author}
+                  image={book.image}
+                />
+              </Link>
+            ))}
+          </div>
+        )}
 
       </div>
-
     </div>
   );
 }
