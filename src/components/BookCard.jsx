@@ -6,7 +6,7 @@ function BookCard({ id, title, author, image }) {
       to={`/book/${id}`}
       state={{ id, title, author, image }}
     >
-      <div className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer">
+      <div className="bg-white p-4 rounded-xl shadow hover:shadow-lg cursor-pointer hover:scale-105 transition duration-300">
 
         <img
           src={image}

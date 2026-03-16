@@ -1,41 +1,74 @@
-import { Link } from "react-router-dom";
-
-import { FaHome, FaBook, FaUsers, FaCog } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { FaChartPie, FaSearch, FaBook, FaStar } from "react-icons/fa";
 
 function Sidebar() {
   return (
-    <div className="hidden md:block w-64 h-screen bg-white shadow-md p-6">
+    <div className="w-64 bg-white shadow-md p-6">
 
-      <h1 className="text-2xl font-bold mb-10">📚 Library</h1>
+      <h2 className="text-xl font-bold mb-8">
+        📚 Book Library
+      </h2>
 
-      <nav className="flex flex-col gap-6">
+      <nav className="space-y-3">
 
-        <Link to="/" className="flex items-center gap-3 hover:text-blue-500">
-          <FaHome />
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-2 rounded-lg transition ${
+              isActive
+                ? "bg-blue-500 text-white"
+                : "text-gray-700 hover:bg-gray-100"
+            }`
+          }
+        >
+          <FaChartPie />
           Dashboard
-        </Link>
+        </NavLink>
 
-        <Link to="/explore" className="flex items-center gap-3 hover:text-blue-500">
-          <FaBook />
+        <NavLink
+          to="/explore"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-2 rounded-lg transition ${
+              isActive
+                ? "bg-blue-500 text-white"
+                : "text-gray-700 hover:bg-gray-100"
+            }`
+          }
+        >
+          <FaSearch />
           Explore
-        </Link>
+        </NavLink>
 
-        <Link to="/library" className="flex items-center gap-3 hover:text-blue-500">
+        <NavLink
+          to="/library"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-2 rounded-lg transition ${
+              isActive
+                ? "bg-blue-500 text-white"
+                : "text-gray-700 hover:bg-gray-100"
+            }`
+          }
+        >
           <FaBook />
           My Library
-        </Link>
+        </NavLink>
 
-        <Link to="/authors" className="flex items-center gap-3 hover:text-blue-500">
-          <FaUsers />
-          Authors
-        </Link>
-
-        <Link to="/settings" className="flex items-center gap-3 hover:text-blue-500">
-          <FaCog />
-          Settings
-        </Link>
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-2 rounded-lg transition ${
+              isActive
+                ? "bg-blue-500 text-white"
+                : "text-gray-700 hover:bg-gray-100"
+            }`
+          }
+        >
+          <FaStar />
+          Favorites
+        </NavLink>
 
       </nav>
+
     </div>
   );
 }
