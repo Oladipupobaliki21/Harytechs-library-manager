@@ -93,7 +93,6 @@ function Explore() {
               >
 
                 <BookCard
-                  id={book.id}
                   title={book.title}
                   author={book.author}
                   image={book.image}

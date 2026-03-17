@@ -12,6 +12,8 @@ function Navbar() {
       <div className="flex items-center gap-3">
         <img
             src={profileImage}
+            alt="Profile"
+            loading="lazy"
           className="rounded-full h-10 w-10 object-cover"
         />
         <span className="font-semibold">Balqees Oladipupo</span>

@@ -35,6 +35,12 @@ function BookDetails() {
           <img 
             src={book.image} 
             alt={book.title} 
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://via.placeholder.com/192x256?text=No+Cover";
+            }}
             className="w-48 h-64 object-cover rounded-lg shadow-md" 
           />
           <div>
