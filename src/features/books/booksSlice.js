@@ -13,18 +13,35 @@ const booksSlice = createSlice({
     addBook: (state, action) => {
       const exists = state.library.find((book) => book.id === action.payload.id);
       if (!exists) {
-        state.library.push(action.payload);
-        // Sync to localStorage
+        // Default status when added is "reading"
+        state.library.push({ ...action.payload, status: "reading" });
         localStorage.setItem("library", JSON.stringify(state.library));
       }
     },
     removeBook: (state, action) => {
       state.library = state.library.filter((book) => book.id !== action.payload);
-      // Sync to localStorage
+      localStorage.setItem("library", JSON.stringify(state.library));
+    },
+    updateBookStatus: (state, action) => {
+      // action.payload = { id: bookId, status: "reading" | "completed" | "want-to-read" }
+      const book = state.library.find((b) => b.id === action.payload.id);
+      if (book) {
+        book.status = action.payload.status;
+        localStorage.setItem("library", JSON.stringify(state.library));
+      }
+    },
+    toggleFavorite: (state, action) => {
+      let book = state.library.find((b) => b.id === action.payload.id);
+      if (!book) {
+        // Auto-add to library if favoriting a new found book
+        state.library.push({ ...action.payload, status: "want-to-read", isFavorite: true });
+      } else {
+        book.isFavorite = !book.isFavorite;
+      }
       localStorage.setItem("library", JSON.stringify(state.library));
     },
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { addBook, removeBook, updateBookStatus, toggleFavorite } = booksSlice.actions;
 export default booksSlice.reducer;

@@ -20,6 +20,7 @@ function ReadingStatus({ books }) {
               title={book.title}
               author={book.author}
               image={book.image}
+              isFavorite={book.isFavorite}
             />
           </Link>
         ))}
