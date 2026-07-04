@@ -8,8 +8,8 @@
  * → Replace GOOGLE_BOOKS_API_KEY below and switch the functions to use that endpoint.
  */
 
-const OL_BASE = "https://openlibrary.org";
-const COVER_BASE = "https://covers.openlibrary.org/b/id";
+// const OL_BASE = "https://openlibrary.org";
+// const COVER_BASE = "https://covers.openlibrary.org/b/id";
 
 // Fields requested from the Search API (keeps response small & fast)
 const FIELDS =

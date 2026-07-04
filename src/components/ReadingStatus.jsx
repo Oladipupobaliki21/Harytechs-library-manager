@@ -13,7 +13,7 @@ function ReadingStatus({ books }) {
             key={book.id}
             to={`/book/${book.id}`}
             state={book}
-            className="flex-shrink-0"
+            className="shrink-0"
           >
             <BookCard
               id={book.id}
